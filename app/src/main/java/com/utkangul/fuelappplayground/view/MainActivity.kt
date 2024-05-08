@@ -17,7 +17,6 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -44,7 +43,6 @@ import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
-import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.utkangul.fuelappplayground.R
 import com.utkangul.fuelappplayground.model.currentAppState
@@ -164,7 +162,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     // show a dialog that asks user to enable location
     private fun enableGPS() {
-        println("enableGPS() fonksiyonu çağrıldı")
 
         val locationRequest = LocationRequest.create()
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -180,26 +177,25 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             .checkLocationSettings(settingsBuilder.build())
 
         result.addOnSuccessListener {
-            println("GPS başarıyla etkinleştirildi.")
-            // ... (Konum tabanlı işlemleri burada gerçekleştirin)
+            println("GPS enabled.")
+
         }
 
         result.addOnFailureListener { ex ->
-            println("Hata: GPS etkinleştirilemedi.")
+            println("Error: GPS could not enabled.")
 
             if (ex is ApiException) {
                 when (ex.statusCode) {
                     LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
                         try {
-                            Toast.makeText(this, "GPS Kapalı", Toast.LENGTH_SHORT).show()
                             val resolvableApiException = ex as ResolvableApiException
                             resolvableApiException.startResolutionForResult(this, GPS_REQ_CODE)
                         } catch (e: IntentSender.SendIntentException) {
-                            Toast.makeText(this, "Konum ayarları başlatılamadı", Toast.LENGTH_SHORT).show()
+                            println("catch, while trying gps enable")
                         }
                     }
                     LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
-                        Toast.makeText(this, "GPS'te bir sorun var", Toast.LENGTH_SHORT).show()
+                        println("LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE")
                     }
                 }
             }
