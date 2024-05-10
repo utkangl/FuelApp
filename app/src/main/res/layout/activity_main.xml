@@ -43,7 +43,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="#808080"
-                android:text="@string/search_for_a_location"
+                android:text="@string/search_for_a_destination"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textSize="17dp"
@@ -79,7 +79,7 @@
         android:layout_marginTop="40dp"
         app:cardCornerRadius="15dp"
         app:cardBackgroundColor="#e6e6e6"
-        android:visibility="visible"
+        android:visibility="gone"
         app:cardElevation="5dp"
         app:strokeWidth="1dp"
         app:strokeColor="#d4d4d4"
@@ -90,17 +90,18 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/sedanCarCard"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:id="@+id/sedanCarCard"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
+                android:padding="3dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="10dp"
-                app:strokeWidth="1dp"
                 app:cardElevation="5dp"
                 app:strokeColor="@color/black"
-                app:cardBackgroundColor="@color/white"
-                android:padding="3dp">
+                app:strokeWidth="1dp">
+
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -110,128 +111,124 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/suvCarCard"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:id="@+id/suvCarCard"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="40dp"
                 android:layout_toStartOf="@id/sedanCarCard"
-                android:layout_marginTop="25dp"
+                android:padding="3dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="10dp"
-                app:strokeWidth="1dp"
                 app:cardElevation="5dp"
                 app:strokeColor="@color/black"
-                app:cardBackgroundColor="@color/white"
-                android:padding="3dp">
+                app:strokeWidth="1dp">
+
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/black_car">
-                </ImageView>
+                    android:background="@drawable/black_car"></ImageView>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/hatchbackCarCard"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:id="@+id/hatchbackCarCard"
                 android:layout_marginStart="40dp"
-                android:layout_toEndOf="@id/sedanCarCard"
                 android:layout_marginTop="25dp"
-                                app:cardCornerRadius="10dp"
-                app:strokeWidth="1dp"
+                android:layout_toEndOf="@id/sedanCarCard"
+                android:padding="3dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
                 app:strokeColor="@color/black"
-                app:cardBackgroundColor="@color/white"
-                android:padding="3dp">
+                app:strokeWidth="1dp">
+
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/black_car">
-                </ImageView>
+                    android:background="@drawable/black_car"></ImageView>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/costCard"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:id="@+id/costCard"
-                android:layout_marginStart="40dp"
-                android:layout_toEndOf="@id/sedanCarCard"
                 android:layout_alignParentBottom="true"
+                android:layout_marginStart="40dp"
                 android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@id/sedanCarCard"
+                android:padding="3dp"
+                app:cardBackgroundColor="#207FA8"
                 app:cardCornerRadius="10dp"
-                app:strokeWidth="1dp"
                 app:cardElevation="5dp"
                 app:strokeColor="@color/white"
-                app:cardBackgroundColor="#207FA8"
-                android:padding="3dp">
+                app:strokeWidth="1dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:maxLines="1"
                     android:text="120 TL"
-                    android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:layout_gravity="center">
-                </TextView>
+                    android:textStyle="bold"></TextView>
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/trafficLevelTV"
-                android:gravity="center"
-                android:layout_toEndOf="@id/sedanCarCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/costCard"
+                android:layout_below="@id/hatchbackCarCard"
                 android:layout_marginStart="50dp"
-                android:layout_above="@id/costCard"
-                android:layout_below="@id/hatchbackCarCard"
-                android:textStyle="bold"
+                android:layout_toEndOf="@id/sedanCarCard"
+                android:gravity="center"
                 android:text="Traffic Level:"
+                android:textColor="@color/black"
                 android:textSize="8dp"
-                android:textColor="@color/black">
-            </TextView>
+                android:textStyle="bold"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_toEndOf="@id/trafficLevelTV"
-                android:layout_marginStart="3dp"
                 android:layout_above="@id/costCard"
                 android:layout_below="@id/hatchbackCarCard"
-                android:textStyle="bold"
-                android:textColor="#D1251D"
+                android:layout_marginStart="3dp"
+                android:layout_toEndOf="@id/trafficLevelTV"
+                android:gravity="center"
                 android:text="High"
-                android:textSize="8dp">
-            </TextView>
+                android:textColor="#D1251D"
+                android:textSize="8dp"
+                android:textStyle="bold"></TextView>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/estimatedTimeTV"
-                android:gravity="center"
-                android:layout_marginStart="23dp"
-                android:layout_below="@id/suvCarCard"
-                android:layout_marginTop="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="25 dk"
-                android:textSize="18dp">
-            </TextView>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/estimatedFuelConsume"
-                android:gravity="center"
+                android:layout_below="@id/suvCarCard"
                 android:layout_marginStart="23dp"
-                android:layout_below="@id/estimatedTimeTV"
-                android:layout_marginTop="5dp"
-                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="25 dk"
                 android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/estimatedFuelConsume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/estimatedTimeTV"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
                 android:text="3 L"
-                android:textSize="18dp">
-            </TextView>
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"></TextView>
 
         </RelativeLayout>
 

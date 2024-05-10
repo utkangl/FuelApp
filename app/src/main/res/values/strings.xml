@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">FuelAppPlayground</string>
     <string name="google_map_api_key">AIzaSyAqRbYrfNfB96xoUA6Ct4KCX2X8X7lQDTg</string>
-    <string name="search_for_a_location">Search for a Location!</string>
+    <string name="search_for_a_destination">Search for a Location!</string>
 </resources>

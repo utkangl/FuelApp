@@ -3,7 +3,6 @@ package com.utkangul.fuelappplayground.viewModel
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
-import android.location.Location
 import android.location.LocationManager
 import android.os.Looper
 import android.widget.Toast
@@ -15,18 +14,17 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.tasks.Task
-import com.utkangul.fuelappplayground.R
 import com.google.android.gms.location.LocationResult
 
-import com.utkangul.fuelappplayground.interfaces.AppStateFunctions
-import com.utkangul.fuelappplayground.interfaces.LocationFunctions
+import com.utkangul.fuelappplayground.interfaces.IAppStateFunctions
+import com.utkangul.fuelappplayground.interfaces.ILocationFunctions
 import com.utkangul.fuelappplayground.model.AppStateDataClass
+import com.utkangul.fuelappplayground.model.Coordinates
 import com.utkangul.fuelappplayground.model.currentAppState
+import com.utkangul.fuelappplayground.model.startCoordinates
 import com.utkangul.fuelappplayground.view.MainActivity
 
-class MainViewModel: ViewModel(), LocationFunctions, AppStateFunctions {
+class MainViewModel: ViewModel(), ILocationFunctions, IAppStateFunctions {
 
     // ask user for location permission
     override fun requestLocationPermission(context: Context, activity: MainActivity) {
@@ -63,6 +61,7 @@ class MainViewModel: ViewModel(), LocationFunctions, AppStateFunctions {
                     for (location in p0.locations) {
                         println("Location found: $location")
                         currentAppState.postValue(AppStateDataClass(currentLocation = location))
+                        startCoordinates = Coordinates(location.latitude,location.longitude)
                         fusedLocationClient.removeLocationUpdates(this) // Stop listening for updates once location is found
                     }
                 }

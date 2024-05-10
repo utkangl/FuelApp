@@ -45,7 +45,13 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.utkangul.fuelappplayground.R
+import com.utkangul.fuelappplayground.model.Coordinates
+import com.utkangul.fuelappplayground.model.PostJsonModel
+import com.utkangul.fuelappplayground.model.car
 import com.utkangul.fuelappplayground.model.currentAppState
+import com.utkangul.fuelappplayground.model.destinationCoordinates
+import com.utkangul.fuelappplayground.model.startCoordinates
+import com.utkangul.fuelappplayground.viewModel.ApiViewModel
 import com.utkangul.fuelappplayground.viewModel.MainViewModel
 import kotlin.properties.Delegates
 
@@ -54,6 +60,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private val GPS_REQ_CODE = 100
     private val viewModel = MainViewModel()
+    private val apiViewModel = ApiViewModel()
     private var listOfMarkers = ArrayList<Marker>()
     private var googleMap: GoogleMap? = null
     private var isMapExpanded = false
@@ -97,12 +104,20 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             if (result.resultCode == Activity.RESULT_OK) {
                 val intent = result.data
                 if (intent != null) {
-                    val place = Autocomplete.getPlaceFromIntent(intent)
-                    addMarker("destination", place.latLng!!, BitmapDescriptorFactory.HUE_GREEN)
+                    val destinationPlace = Autocomplete.getPlaceFromIntent(intent)
+                    destinationCoordinates = Coordinates(destinationPlace.latLng.latitude,destinationPlace.latLng.longitude)
+                    addMarker("destination", destinationPlace.latLng!!, BitmapDescriptorFactory.HUE_GREEN)
                     slideResizeView(
                         mapFragmentContainer,final,currentHeight,300,
-                        onAnimationStart = { },
-                        onAnimationEnd = {autoCompleteSearchCV.visibility = View.VISIBLE; drawLineBetweenMarkers(); zoomToFitMarkers(); informationsCard.visibility = View.VISIBLE;expandMapIV.visibility = View.VISIBLE}
+                        onAnimationStart = {
+                           apiViewModel.calculateCost(PostJsonModel(startCoordinates, destinationCoordinates,car)) },
+                        onAnimationEnd = {
+                            autoCompleteSearchCV.visibility = View.VISIBLE
+                            drawLineBetweenMarkers()
+                            zoomToFitMarkers()
+                            informationsCard.visibility = View.VISIBLE
+                            expandMapIV.visibility = View.VISIBLE
+                        }
                     )
                 }
             } else if (result.resultCode == Activity.RESULT_CANCELED) {
