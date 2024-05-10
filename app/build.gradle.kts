@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.utkangul.fuelappplayground"
+    namespace = "com.utkangul.fuelapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.utkangul.fuelappplayground"
+        applicationId = "com.utkangul.fuelapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

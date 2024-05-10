@@ -1,4 +1,4 @@
-package com.utkangul.fuelappplayground.viewModel
+package com.utkangul.fuelapp.viewModel
 
 import android.Manifest
 import android.content.Context
@@ -16,13 +16,13 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.location.LocationResult
 
-import com.utkangul.fuelappplayground.interfaces.IAppStateFunctions
-import com.utkangul.fuelappplayground.interfaces.ILocationFunctions
-import com.utkangul.fuelappplayground.model.AppStateDataClass
-import com.utkangul.fuelappplayground.model.Coordinates
-import com.utkangul.fuelappplayground.model.currentAppState
-import com.utkangul.fuelappplayground.model.startCoordinates
-import com.utkangul.fuelappplayground.view.MainActivity
+import com.utkangul.fuelapp.interfaces.IAppStateFunctions
+import com.utkangul.fuelapp.interfaces.ILocationFunctions
+import com.utkangul.fuelapp.model.AppStateDataClass
+import com.utkangul.fuelapp.model.Coordinates
+import com.utkangul.fuelapp.model.currentAppState
+import com.utkangul.fuelapp.model.startCoordinates
+import com.utkangul.fuelapp.view.MainActivity
 
 class MainViewModel: ViewModel(), ILocationFunctions, IAppStateFunctions {
 

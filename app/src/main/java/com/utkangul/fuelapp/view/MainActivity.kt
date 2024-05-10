@@ -1,4 +1,4 @@
-package com.utkangul.fuelappplayground.view
+package com.utkangul.fuelapp.view
 
 import android.animation.Animator
 import android.animation.AnimatorSet
@@ -44,15 +44,15 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
-import com.utkangul.fuelappplayground.R
-import com.utkangul.fuelappplayground.model.Coordinates
-import com.utkangul.fuelappplayground.model.PostJsonModel
-import com.utkangul.fuelappplayground.model.car
-import com.utkangul.fuelappplayground.model.currentAppState
-import com.utkangul.fuelappplayground.model.destinationCoordinates
-import com.utkangul.fuelappplayground.model.startCoordinates
-import com.utkangul.fuelappplayground.viewModel.ApiViewModel
-import com.utkangul.fuelappplayground.viewModel.MainViewModel
+import com.utkangul.fuelapp.R
+import com.utkangul.fuelapp.model.Coordinates
+import com.utkangul.fuelapp.model.PostJsonModel
+import com.utkangul.fuelapp.model.car
+import com.utkangul.fuelapp.model.currentAppState
+import com.utkangul.fuelapp.model.destinationCoordinates
+import com.utkangul.fuelapp.model.startCoordinates
+import com.utkangul.fuelapp.viewModel.ApiViewModel
+import com.utkangul.fuelapp.viewModel.MainViewModel
 import kotlin.properties.Delegates
 
 

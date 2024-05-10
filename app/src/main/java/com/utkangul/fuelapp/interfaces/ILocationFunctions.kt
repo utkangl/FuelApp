@@ -1,9 +1,9 @@
-package com.utkangul.fuelappplayground.interfaces
+package com.utkangul.fuelapp.interfaces
 
 import android.content.Context
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.utkangul.fuelappplayground.view.MainActivity
+import com.utkangul.fuelapp.view.MainActivity
 
 interface ILocationFunctions {
     fun requestLocationPermission(context: Context, activity: MainActivity)

@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FuelAppPlayground"
+rootProject.name = "FuelApp"
 include(":app")
  

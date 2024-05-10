@@ -1,4 +1,4 @@
-package com.utkangul.fuelappplayground
+package com.utkangul.fuelapp
 
 import org.junit.Test
 

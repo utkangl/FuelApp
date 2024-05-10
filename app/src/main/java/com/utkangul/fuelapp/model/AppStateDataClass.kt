@@ -1,4 +1,4 @@
-package com.utkangul.fuelappplayground.model
+package com.utkangul.fuelapp.model
 
 import android.location.Location
 import androidx.lifecycle.MutableLiveData

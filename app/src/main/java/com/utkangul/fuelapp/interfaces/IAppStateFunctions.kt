@@ -1,4 +1,4 @@
-package com.utkangul.fuelappplayground.interfaces
+package com.utkangul.fuelapp.interfaces
 
 import android.content.Context
 

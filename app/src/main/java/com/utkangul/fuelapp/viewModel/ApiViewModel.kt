@@ -1,11 +1,11 @@
-package com.utkangul.fuelappplayground.viewModel
+package com.utkangul.fuelapp.viewModel
 
 import androidx.lifecycle.ViewModel
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import com.utkangul.fuelappplayground.interfaces.IApiRequest
-import com.utkangul.fuelappplayground.model.ApiResponseModel
-import com.utkangul.fuelappplayground.model.PostJsonModel
+import com.utkangul.fuelapp.interfaces.IApiRequest
+import com.utkangul.fuelapp.model.ApiResponseModel
+import com.utkangul.fuelapp.model.PostJsonModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
