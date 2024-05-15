@@ -44,6 +44,7 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
+import com.utkangul.fuelapp.BuildConfig
 import com.utkangul.fuelapp.R
 import com.utkangul.fuelapp.model.Coordinates
 import com.utkangul.fuelapp.model.PostJsonModel
@@ -93,7 +94,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         mapFragment.getMapAsync(this)
-        Places.initialize(applicationContext, getString(R.string.google_map_api_key))
+        Places.initialize(applicationContext, BuildConfig.GOOGLE_MAPS_API_KEY)
         currentHeight = mapFragmentContainer.layoutParams.height
 
 

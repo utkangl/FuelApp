@@ -47,7 +47,6 @@ class ApiViewModel : ViewModel(){
                     println(response)
                 }
             }
-
             override fun onFailure(call: Call<ApiResponseModel>, t: Throwable) {
                 println("Error: ${t.message}")
             }

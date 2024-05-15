@@ -1,12 +1,17 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-}
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")}
 
 android {
     namespace = "com.utkangul.fuelapp"
     compileSdk = 34
 
+
+
+    buildFeatures{
+        buildConfig = true
+    }
     defaultConfig {
         applicationId = "com.utkangul.fuelapp"
         minSdk = 24
